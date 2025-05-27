@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Community Event Portal</title>
+  <style>
+    /* Exercise 1, 3, 4, 5, 6, 7, 9: Combined Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f7;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    nav {
+      background-color: #004080;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    #welcomeBanner {
+      background-color: blue;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.2em;
+    }
+    .highlight {
+      color: green;
+      font-weight: bold;
+    }
+    .special-offer {
+      color: red;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      text-align: center;
+    }
+    caption {
+      caption-side: top;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    td {
+      padding: 10px;
+    }
+    .event-image {
+      width: 100px;
+      height: 70px;
+      border: 2px solid #333;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .event-image.enlarged {
+      transform: scale(2);
+      z-index: 10;
+      position: relative;
+    }
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background: white;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      font-size: 1em;
+      resize: vertical;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: blue;
+      outline: none;
+    }
+    button {
+      background-color: #004080;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    button:hover {
+      background-color: #0066cc;
+    }
+    output {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+    #charCount {
+      text-align: right;
+      font-size: 0.9em;
+      color: #555;
+    }
+    #videoStatus {
+      font-style: italic;
+      margin-top: 5px;
+      color: #006600;
+    }
+    #coordinates {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    @media screen and (max-width: 600px) {
+      .event-image {
+        width: 70px;
+        height: 50px;
+      }
+      form {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Exercise 2: Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank" rel="noopener noreferrer">Help</a>
+  </nav>
+
+  <main>
+    <!-- Exercise 1 & 3: Welcome Section -->
+    <section id="home" tabindex="-1">
+      <div id="welcomeBanner">
+        Welcome to the Community Portal! <span class="special-offer">Special offer!</span>
+      </div>
+      <p class="highlight">Register now and participate in exciting events!</p>
+    </section>
+
+    <!-- Exercise 4: Image Gallery -->
+    <section id="gallery" tabindex="-1">
+      <h2>Event Gallery</h2>
+      <table>
+        <caption>Highlights from Previous Events</caption>
+        <tr>
+          <td><img src="img1.jpg" class="event-image" alt="Community Cleanup" title="Community Cleanup"></td>
+          <td><img src="img2.jpg" class="event-image" alt="Art Festival" title="Art Festival"></td>
+          <td><img src="img3.jpg" class="event-image" alt="Music Concert" title="Music Concert"></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Exercise 5: Registration Form -->
+    <section id="events" tabindex="-1">
+      <h2>Register for Events</h2>
+      <form id="eventForm" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required autofocus placeholder="Enter your full name" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="eventType">Event Type:</label>
+        <select id="eventType" name="eventType" required>
+          <option value="">-- Select Event --</option>
+          <option value="music">Music</option>
+          <option value="art">Art</option>
+          <option value="tech">Tech</option>
+        </select>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your message or questions"></textarea>
+
+        <button type="submit" id="submitBtn">Submit</button>
+        <button type="button" id="clearPrefsBtn">Clear Preferences</button>
+        <output id="confirmation"></output>
+        <output id="eventFee" style="color:blue;"></output>
+      </form>
+    </section>
+
+    <!-- Exercise 6: Feedback Section -->
+    <section id="contact" tabindex="-1">
+      <h2>Feedback</h2>
+      <textarea id="feedbackText" placeholder="Your feedback here..."></textarea>
+      <p id="charCount">Characters: 0</p>
+    </section>
+
+    <!-- Exercise 7: Video Section -->
+    <section id="video" tabindex="-1">
+      <h2>Promo Video</h2>
+      <video id="promoVideo" width="320" controls oncanplay="videoReady()">
+        <source src="promo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <p id="videoStatus"></p>
+    </section>
+
+    <!-- Exercise 9: Geolocation Section -->
+    <section id="location" tabindex="-1">
+      <h2>Find Nearby Events</h2>
+      <button id="locateBtn">Find Nearby Events</button>
+      <p id="coordinates"></p>
+    </section>
+  </main>
+
+  <!-- Exercise 1: Footer -->
+  <footer>
+    <p>&copy; 2025 Local Community Council</p>
+  </footer>
+
+  <script>
+    // Exercise 10: JavaScript Logic & Debugging
+
+    console.log("Community Event Portal Loaded");
+
+    const form = document.getElementById("eventForm");
+    const confirmationOutput = document.getElementById("confirmation");
+    const eventFeeOutput = document.getElementById("eventFee");
+    const eventTypeSelect = document.getElementById("eventType");
+    const phoneInput = document.getElementById("phone");
+    const feedbackText = document.getElementById("feedbackText");
+    const charCount = document.getElementById("charCount");
+    const submitBtn = document.getElementById("submitBtn");
+    const clearPrefsBtn = document.getElementById("clearPrefsBtn");
+    const promoVideo = document.getElementById("promoVideo");
+    const videoStatus = document.getElementById("videoStatus");
+    const locateBtn = document.getElementById("locateBtn");
+    const coordinates = document.getElementById("coordinates");
+
+    // Exercise 5: Form submission
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (phoneInput.value && !validatePhone(phoneInput.value)) {
+        alert("Please enter a valid phone number (digits, spaces, +, -, parentheses allowed).");
+        phoneInput.focus();
+        return;
+      }
+
+      confirmationOutput.textContent = `Thank you, ${this.name.value}, for registering!`;
+
+      if (eventTypeSelect.value) {
+        localStorage.setItem("preferredEvent", eventTypeSelect.value);
+      }
+    });
+
+    // Exercise 6: Phone validation on blur
+    phoneInput.addEventListener("blur", () => {
+      if (phoneInput.value && !validatePhone(phoneInput.value)) {
+        alert("Invalid phone number format!");
+        phoneInput.focus();
+      }
+    });
+
+    function validatePhone(phone) {
+      const phonePattern = /^[0-9+\-\s\(\)]{7,}$/;
+      return phonePattern.test(phone);
+    }
+
+    // Exercise 6: Event fee display
+    eventTypeSelect.addEventListener("change", () => {
+      const fees = {
+        music: "$50",
+        art: "$30",
+        tech: "$40",
+      };
+      eventFeeOutput.textContent = fees[eventTypeSelect.value] ? `Event Fee: ${fees[eventTypeSelect.value]}` : "";
+    });
+
+    // Exercise 6: Confirm on submit button click
+    submitBtn.addEventListener("click", () => {
+      confirmationOutput.style.color = "green";
+    });
+
+    // Exercise 6: Double click to enlarge images
+    document.querySelectorAll(".event-image").forEach(img => {
+      img.addEventListener("dblclick", () => {
+        if (img.classList.contains("enlarged")) {
+          img.classList.remove("enlarged");
+        } else {
+          document.querySelectorAll(".event-image.enlarged").forEach(el => el.classList.remove("enlarged"));
+          img.classList.add("enlarged");
+        }
+      });
+    });
+
+    // Exercise 6: Feedback character count
+    feedbackText.addEventListener("input", () => {
+      charCount.textContent = `Characters: ${feedbackText.value.length}`;
+    });
+
+    // Exercise 7: Video media events
+    promoVideo.addEventListener("play", () => {
+      videoStatus.textContent = "Video is playing...";
+    });
+    promoVideo.addEventListener("pause", () => {
+      videoStatus.textContent = "Video is paused.";
+    });
+    promoVideo.addEventListener("ended", () => {
+      videoStatus.textContent = "Video has ended.";
+    });
+
+    function videoReady() {
+      videoStatus.textContent = "Video is ready to play.";
+    }
+
+    // Exercise 9: Geolocation
+    locateBtn.addEventListener("click", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            coordinates.textContent = `Latitude: ${position.coords.latitude.toFixed(4)}, Longitude: ${position.coords.longitude.toFixed(4)}`;
+          },
+          error => {
+            coordinates.textContent = "Unable to retrieve your location.";
+          }
+        );
+      } else {
+        coordinates.textContent = "Geolocation is not supported by this browser.";
+      }
+    });
+
+    // Exercise 5: Clear Preferences Button
+    clearPrefsBtn.addEventListener("click", () => {
+      localStorage.removeItem("preferredEvent");
+      alert("Preferences cleared.");
+    });
+
+    // Load preferred event from localStorage if exists
+    window.addEventListener("load", () => {
+      const preferredEvent = localStorage.getItem("preferredEvent");
+      if (preferredEvent) {
+        eventTypeSelect.value = preferredEvent;
+        eventTypeSelect.dispatchEvent(new Event('change'));
+      }
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,160 @@
+/* CSS3 Exercises - styles.css */
+
+/* Exercise 1: Internal, Inline, and External Styling */
+/* (External styles - this file) */
+body {
+  background-color: #f0f8ff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Exercise 2: CSS Syntax and Comments */
+/* Style for main CTA button */
+.cta-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Exercise 3: Selectors Playground */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #333;
+}
+
+#mainHeader {
+  background-color: #eef;
+  padding: 10px;
+}
+
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 15px 0;
+  background-color: #fdfdfd;
+}
+
+h3, p {
+  font-family: Arial, sans-serif;
+  margin-bottom: 10px;
+}
+
+/* Exercise 4: Colors & Background */
+.header-gradient {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  padding: 10px;
+}
+
+.highlighted {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+body {
+  background-image: url('background.jpg');
+  background-color: #fafafa;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Exercise 5: Typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.text-section {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: justify;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+/* Exercise 6: Links & Lists */
+a:link {
+  color: blue;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  color: orange;
+}
+a:active {
+  color: red;
+}
+
+nav ul {
+  list-style-type: none;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+nav li {
+  padding: 5px 0;
+}
+
+/* Exercise 7: Table Styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  border: 1px solid #999;
+  padding: 10px;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Exercise 8: Box Model */
+.eventCard {
+  border: 2px solid #888;
+  padding: 15px;
+  margin: 20px;
+}
+
+input:focus {
+  outline: 2px solid #00f;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.removed {
+  display: none;
+}
+
+/* Exercise 9: Multi-Column Text */
+.news {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+/* Exercise 10: Responsive Design */
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .responsive-img {
+    width: 100%;
+    height: auto;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}
+
+/* Exercise 11: DevTools - No CSS code, use Chrome for testing */
